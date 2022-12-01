@@ -1,11 +1,11 @@
 package main
 
 import (
-	"strconv"
 	"bufio"
 	"fmt"
 	"os"
 	"sort"
+	"strconv"
 )
 
 func check(e error) {
@@ -39,5 +39,5 @@ func main() {
 
 	sort.Sort(sort.Reverse(sort.IntSlice(totals)))
 
-	fmt.Println("Sum of first 3:", totals[0] + totals[1] + totals[2])
+	fmt.Println("Sum of first 3:", totals[0]+totals[1]+totals[2])
 }
