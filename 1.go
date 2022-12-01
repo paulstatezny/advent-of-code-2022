@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 )
 
 func check(e error) {
@@ -14,7 +15,7 @@ func check(e error) {
 }
 
 func main() {
-	max := 0
+	totals := []int{}
 	current := 0
 
 	readFile, err := os.Open("./1.txt")
@@ -27,17 +28,16 @@ func main() {
 		text := fileScanner.Text()
 
 		if text == "" {
+			totals = append(totals, current)
 			current = 0
 		} else {
 			i, err := strconv.Atoi(text)
 			check(err)
 			current += i
-
-			if current > max {
-				max = current
-			}
 		}
 	}
 
-	fmt.Println("Max:", max)
+	sort.Sort(sort.Reverse(sort.IntSlice(totals)))
+
+	fmt.Println("Sum of first 3:", totals[0] + totals[1] + totals[2])
 }
