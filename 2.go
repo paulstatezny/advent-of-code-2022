@@ -165,8 +165,8 @@ func Part1Main() {
 
 	for scanner.Scan() {
 		line := getLine(scanner)
-		self := choice(line[2])
-		opponent := choice(line[0])
+		self := parseChoice(line[2])
+		opponent := parseChoice(line[0])
 		score += choiceScore(self) + outcomeScore(outcomeOfRound(self, opponent))
 	}
 
@@ -174,7 +174,7 @@ func Part1Main() {
 }
 
 // Part 2
-func main() {
+func main2() {
 	file, scanner := lineScanner()
 	defer closeFile(file)
 	score := 0
@@ -189,4 +189,3 @@ func main() {
 
 	fmt.Println("Total score:", score)
 }
-

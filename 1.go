@@ -14,7 +14,7 @@ func check(e error) {
 	}
 }
 
-func main() {
+func main1() {
 	totals := []int{}
 	current := 0
 
